@@ -4,6 +4,14 @@ default_install_hook_types:
   - commit-msg
   - post-checkout
 
+ci:
+  autofix_commit_msg: |
+    fix: auto fixes from pre-commit.com hooks
+
+    for more information, see https://pre-commit.ci
+  autoupdate_commit_msg: 'chore: pre-commit autoupdate'
+  autoupdate_schedule: weekly
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
@@ -56,6 +64,8 @@ repos:
     rev: 0.33.0
     hooks:
       - id: check-gitlab-ci
+      - id: check-github-actions
+      - id: check-github-workflows
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.10.0.1
     hooks:
